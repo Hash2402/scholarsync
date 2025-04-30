@@ -1,0 +1,503 @@
+/* Custom styles for Student Portal */
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: 
+        linear-gradient(135deg, rgba(30, 60, 114, 0.95) 0%, rgba(42, 82, 152, 0.95) 100%),
+        url('data:image/svg+xml,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="%23ffffff" fill-opacity="0.05"/><path d="M0 0h100v100H0z" fill="none" stroke="%23ffffff" stroke-width="0.5" stroke-opacity="0.1"/></svg>');
+    background-size: 400% 400%, 50px 50px;
+    position: relative;
+    overflow-x: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%, 0 0;
+    }
+    50% {
+        background-position: 100% 50%, 25px 25px;
+    }
+    100% {
+        background-position: 0% 50%, 0 0;
+    }
+}
+
+.brand-background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 15vw;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.03);
+    white-space: nowrap;
+    z-index: 0;
+    font-family: 'Arial', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.03;
+    }
+    50% {
+        opacity: 0.05;
+    }
+    100% {
+        opacity: 0.03;
+    }
+}
+
+.portal-container {
+    padding: 2rem;
+    color: white;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.main-logo {
+    text-align: center;
+    margin-bottom: 1rem;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.main-logo h1 {
+    color: white;
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    background: linear-gradient(to right, #ffffff, #e0e0e0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+.main-logo p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem 2rem;
+    border-radius: 15px 0 0 15px;
+    margin-bottom: 1rem;
+    position: fixed;
+    right: 0;
+    top: 2rem;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    z-index: 2;
+    box-shadow: -4px 4px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-right: none;
+    transition: all 0.3s ease;
+}
+
+.user-info:hover {
+    background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%);
+    transform: translateX(-5px);
+    box-shadow: -6px 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.user-name {
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    letter-spacing: 0.5px;
+}
+
+.logout-btn {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 0.6rem 1.8rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.logout-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.logout-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.logout-btn:hover::before {
+    left: 100%;
+}
+
+.welcome-section {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    width: 100%;
+}
+
+.welcome-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.welcome-section p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.dashboard-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s ease;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.dashboard-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #1e3c72, #2a5298);
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.dashboard-card h3 {
+    color: #1e3c72;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    font-size: 2rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.dashboard-card h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, #1e3c72, #2a5298);
+    border-radius: 2px;
+}
+
+.grade-item {
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #2c3e50;
+    transition: all 0.3s ease;
+    background: white;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.grade-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.course-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.course-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1e3c72;
+}
+
+.course-id {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    font-weight: 500;
+}
+
+.grade-value {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #2c3e50;
+    padding: 0.5rem 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    min-width: 80px;
+    text-align: center;
+}
+
+.navbar {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.card {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    border: none;
+    margin-bottom: 20px;
+}
+
+.card-title {
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.list-group-item {
+    border: none;
+    padding: 12px 20px;
+    transition: all 0.3s ease;
+}
+
+.list-group-item:hover {
+    background-color: #f8f9fa;
+    transform: translateX(5px);
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+.table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+}
+
+.btn-primary {
+    background-color: #3498db;
+    border-color: #3498db;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+}
+
+.modal-content {
+    border: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Document list styles */
+.document-item {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.document-item:last-child {
+    border-bottom: none;
+}
+
+.document-info {
+    flex-grow: 1;
+}
+
+.document-actions {
+    margin-left: 15px;
+}
+
+/* Profile styles */
+.profile-section {
+    margin-bottom: 20px;
+}
+
+.profile-section h6 {
+    color: #6c757d;
+    margin-bottom: 10px;
+}
+
+.profile-value {
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+/* Status badges */
+.badge {
+    padding: 6px 12px;
+    font-weight: 500;
+}
+
+.badge-success {
+    background-color: #2ecc71;
+}
+
+.badge-warning {
+    background-color: #f1c40f;
+}
+
+.badge-danger {
+    background-color: #e74c3c;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .portal-container {
+        max-width: 90%;
+    }
+    .main-logo {
+        padding-right: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .portal-container {
+        padding: 1rem;
+    }
+    .main-logo {
+        padding-right: 200px;
+    }
+    .main-logo h1 {
+        font-size: 2.5rem;
+    }
+    
+    .main-logo p {
+        font-size: 1rem;
+    }
+    
+    .user-info {
+        position: relative;
+        right: auto;
+        top: auto;
+        margin: 1rem 0;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .user-name {
+        font-size: 1.1rem;
+    }
+    
+    .welcome-section h1 {
+        font-size: 2rem;
+    }
+    
+    .brand-background {
+        font-size: 20vw;
+    }
+    
+    .dashboard-card {
+        padding: 1.5rem;
+    }
+    
+    .grade-item {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-logo {
+        padding-right: 150px;
+    }
+    .main-logo h1 {
+        font-size: 2rem;
+    }
+    
+    .welcome-section {
+        padding: 1.5rem;
+    }
+    
+    .welcome-section h1 {
+        font-size: 1.8rem;
+    }
+    
+    .welcome-section p {
+        font-size: 1rem;
+    }
+    
+    .dashboard-card {
+        padding: 1.2rem;
+    }
+    
+    .dashboard-card h3 {
+        font-size: 1.5rem;
+    }
+    
+    .grade-item {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+    
+    .grade-value {
+        font-size: 1rem;
+    }
+    
+    .brand-background {
+        font-size: 25vw;
+    }
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px rgba(255,255,255,0.5),
+                    0 0 20px rgba(255,255,255,0.3),
+                    0 0 30px rgba(255,255,255,0.1);
+    }
+    to {
+        text-shadow: 0 0 20px rgba(255,255,255,0.6),
+                    0 0 30px rgba(255,255,255,0.4),
+                    0 0 40px rgba(255,255,255,0.2);
+    }
+} 

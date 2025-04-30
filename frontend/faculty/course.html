@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScholarSync - Course View</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="course.css" rel="stylesheet">
+</head>
+<body>
+    <div class="brand-background">ScholarSync</div>
+    <div class="portal-container">
+        <div class="main-logo">
+            <h1>ScholarSync</h1>
+            <p>Seamless Academic Management</p>
+        </div>
+        <div class="user-info">
+            <span class="user-name" id="userName"></span>
+            <button class="back-to-courses-btn" onclick="backToCourses()">Back to Courses</button>
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+        <div class="welcome-section-course">
+            <div class="course-header">
+                <div class="course-title">
+                    <h1 id="courseName">Course Name</h1>
+                    <span class="course-code" id="courseCode">Course Code</span>
+                </div>
+                <div class="course-description-course" id="courseDescription">
+                    Course description will be displayed here. This provides a detailed overview of the course content, objectives, and requirements.
+                </div>
+            </div>
+        </div>
+
+        <div class="course-details-section">
+            <div class="course-stats-overview">
+                <div class="stat-card">
+                    <span class="stat-label">Total Students</span>
+                    <span class="stat-value" id="totalStudents">0</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Ungraded Students</span>
+                    <span class="stat-value" id="ungradedStudents">0</span>
+                </div>
+            </div>
+
+            <div class="students-list">
+                <div class="students-header">
+                    <h2>Student List</h2>
+                    <div class="filter-options">
+                        <select id="filterStatus" class="filter-select">
+                            <option value="all">All Students</option>
+                            <option value="ungraded">Ungraded Only</option>
+                            <option value="graded">Graded Only</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="search-bar">
+                    <input type="text" id="searchStudent" placeholder="Search students..." class="form-control">
+                </div>
+                <div class="students-grid" id="studentsGrid">
+                    <!-- Student cards will be dynamically added here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Grade Modal -->
+    <div id="gradeModal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Grade Student</h3>
+                <button type="button" class="close-btn" onclick="closeGradeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="student-info">
+                    <div class="info-row">
+                        <span class="info-label">Student Name:</span>
+                        <span id="modalStudentName" class="info-value"></span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Student ID:</span>
+                        <span id="modalStudentId" class="info-value"></span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Current Grade:</span>
+                        <span id="modalCurrentGrade" class="info-value"></span>
+                    </div>
+                </div>
+                <div class="grade-input">
+                    <label for="gradeInput">Enter New Grade (0-100):</label>
+                    <div class="grade-input-wrapper">
+                        <input type="number" id="gradeInput" min="0" max="100" step="0.1" required>
+                        <span class="grade-suffix">%</span>
+                    </div>
+                    <span class="error-message" id="gradeError"></span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="cancel-btn" onclick="closeGradeModal()">Cancel</button>
+                <button type="button" class="save-btn" onclick="saveGrade()">Save Grade</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="course.js"></script>
+</body>
+</html> 
